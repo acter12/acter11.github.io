@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <!--页面信息-->
+    <head>  
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 新 Bootstrap5 核心 CSS 文件 -->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+        <!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+        <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+        <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+        <title>华润万国</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .background{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-width: 500px;
+            z-index: -10;
+            zoom: 1;
+            background: url(https://pic.imgdb.cn/item/654c9b6cc458853aef121b94.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 0;
+        }
+        .logo {
+            width: 280px;
+            font-family: "KaiTi", cursive;
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
+            transform: translate(10%, 30%);
+            position: absolute;
+            top: 4%;
+            left: 37%;
+            background-color:none;
+        }
+
+        .search-box {
+            position: absolute;
+            width: 600px;
+            height: 50px;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 25px;
+            padding: 10px;
+            background-color: rgb(255, 255, 255);
+        }
+        .search {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding:0;
+            color: black;
+            font-size: 16px;
+            line-height: 40px;
+            width: 542px;
+            transform: translate(1%,-15%);
+        }
+        .search-cli {/*查找按钮*/
+            float: right;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(213, 233, 243, 0);
+            transform: translate(0%,-110%);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .search_type {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-147%,-65%);
+        }
+        .search_condition {
+            position: absolute;
+            top: 40%;
+            left: 26%;
+            transform: translate(-50%,-50%);
+        }
+        .form-select{
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            background-color: rgba(60, 128, 223, 0.393);
+        }
+        .dropdown-menu{
+            min-width:auto;
+        }
+        .btn1{
+            width: 90px;
+            font-size: 15px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            margin-left: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        .btn2{
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .nuaa_websites{
+            position: absolute;
+            top: 3.5%;
+            left: 32%;
+        }
+        .xxwz{
+            color: black;
+            float: left;
+            transform: translate(20%,50%);
+        }
+        .btn_web{
+            width: 100px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+        }
+        /* 在按钮之间添加边框样式 */
+        .nuaa_websites .col-md-3 {
+            border-right: 2px solid white; /* 灰色边框 */
+        }
+
+        /* 最后一个按钮不添加右边框，防止多余的分隔线 */
+        .nuaa_websites .col-md-3:last-child {
+            border-right: none;
+        }
+        .hot_search{
+            position: absolute;
+            top: 45%;
+            left: 27.5%;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            width: 600px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .fire{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            transform: translate(320%,-120%);
+        }
+        .sxrs{
+            font-size: large;
+            font-weight: 900;
+            color: rgb(255, 119, 34);
+            transform: translate(4%,40%);
+        }
+        .row{
+            transform:translate(0%,15%);
+        }
+        .sxrs_content{
+            font-weight: bold;
+            color:rgb(0, 0, 0);
+            text-decoration:underline;
+        }
+        .hot_search_container{
+            transform: translate(0%,-5%);
+        }
+        /* .search-header-intro{
+            position: absolute;
+            top: 80%;
+            left: 34%;
+            background-color:none;
+        }
+        .search-header-intro-head{
+            font-size: 60px !important;
+            font-weight: 1000;
+            font-family: "SimHei", sans-serif;
+            transform: translate(0%,0%);
+        }
+        .search-header-intro-sub{
+            font-size: 20px !important;
+            font-weight: 1000;
+            font-family: "SimHei", sans-serif;
+            transform: translate(0%,0%);
+        }       */
+    </style>
+    <body>
+        <div class="background"></div>
+        <!-- <div class="header">
+            <span>南航学导</span>
+        </div>
+        <div class="subheader">
+            <span>南京航空航天大学统一信息搜索平台</span>
+        </div> -->
+        <!-- <div class="logo">
+            <img src="https://pic.imgdb.cn/item/654f6a77c458853aef0349b2.png" alt="华润万国"> 
+            <span style="color:rgb(255, 0, 0); font-size:35px; font-family: Arial;">华</span>
+            <span style="color:rgb(0, 128, 0); font-size:35px; font-family: Arial;">润</span>
+            <span style="color:rgb(0, 0, 255); font-size:35px; font-family: Arial;">万</span>
+            <span style="color:rgb(255, 255, 0); font-size:35px; font-family: Arial;">国</span>              -->
+			<!-- <span style="font-size:24px;">全球留学项目</span>
+		</div> -->
+        <!-- 筛选条件 -->
+        <!-- <form class="search_condition" method="post">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>主题</option>
+                <option value="1">来源</option>
+                <option value="2">日期</option>
+            </select>
+        </form> -->
+        <!-- 搜索框 -->
+        <form class="search-box"  onsubmit="javascript: return false;">
+            <input type="text" class="search" name="search_input" placeholder="请输入关键字" autocomplete="off" autofocus>
+            <button class="search-cli" onclick="search()">
+                <img src="https://img.51miz.com/Element/00/77/58/24/d4ea6a63_E775824_f774866d.png" alt="">
+            </button>
+        </form>
+        
+        <!-- 学校网站 -->
+        <div class="container btn-group-vertical nuaa_websites">
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <a href='https://www.nuaa.edu.cn/main.htm'><button class="btn btn_web btn-primary">申请要求</button></a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href='https://aao.nuaa.edu.cn'><button class="btn btn_web btn-primary">院校类别</button></a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href='https://lib.nuaa.edu.cn'><button class="btn btn_web btn-primary">费用</button></a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href='http://xxhc.nuaa.edu.cn'><button class="btn btn_web btn-primary">学校风格</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="logo">
+            <img src="https://pic.imgdb.cn/item/654f6a77c458853aef0349b2.png" alt="华润万国"> 
+			<span style="font-size:24px;">全球留学项目搜索引擎</span>
+		</div>
+
+        <!-- 时下热搜 -->
+        <div class="hot_search">
+            <p class="sxrs" style="color:#FF6600;">时下热搜</p>
+            <!-- <p class="sxrs">时下热搜</p> -->
+            <div class="fire">
+                <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3779990328,1416553241&fm=179&app=35&f=PNG?w=108&h=108&s=E7951B62A4639D153293A4E90300401B">
+            </div>
+
+            <!-- <img style="height:10px width=10px;" src="https://i.postimg.cc/G2Nsf9rp/fire.png"> -->
+            <div class="container hot_search_container">
+                <div class="row">
+                    <div class="col">
+                        <a href='http://newsweb.nuaa.edu.cn/2022/1001/c743a294260/pagem.htm' class="sxrs_content">1、想告诉全世界的6个必备攻略</a>
+                    </div>
+                    <div class="col">
+                        <a href='http://aero.nuaa.edu.cn/2022/1005/c3913a294575/page.htm' class="sxrs_content">2、8分钟带你速览出国留学全攻略</a>
+                    </div>
+                <div class="row">
+                    <div class="col">
+                        <a href='http://aero.nuaa.edu.cn/2022/1010/c3913a294981/page.htm' class="sxrs_content">3、庶民留学怎么回本！</a>
+                    </div>
+                    <div class="col" style="transform:translate(4%,0%);">
+                        <a href='http://www.graduate.nuaa.edu.cn/13541/list.htm' class="sxrs_content">4、有没有留学又好又便宜的国家？</a>
+                    </div>
+                <div class="row" style="transform:translate(0%,35%);">
+                    <div class="col">
+                        <a href='http://cepe.nuaa.edu.cn/2022/1006/c11914a294598/page.htm' class="sxrs_content">5、在美国留学一年要花多少钱</a>
+                    </div>
+                    <div class="col" style="transform:translate(8%,0%);">
+                        <a href='http://cepe.nuaa.edu.cn/2022/0929/c11911a293865/page.htm' class="sxrs_content">6、你适合出国留学么？</a>
+                    </div>
+              </div>
+            
+        </div>
+        
+    </body>
+    
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function search(){
+
+        window.location.href="/result_page?search_input="+$(".search-box .search").val()+"&&search_input=0&&search_date=0"
+         
+
+
+    }
+  
+      
+   
+</script>
